@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.gameList:nth-last-child(1) {
+  border-bottom-width: 0;
+}
+
+.team{
+  min-width: 285px
+}
+
+.index{
+  background-image: url('/images/index_images/indexbg.webp');
+  background-repeat: repeat-y;
+  background-position: center;
+}
+
+@media (min-width: 220px) and (max-width: 525px) {
+  .index-title {
+    font-size: 12px;
+  }
+  .search-input{
+    width: 160px
+  }
+  .line-chart{
+    width: 300px;
+    height: 300px;
+  }
+  .map{
+    margin-bottom: 15px;
+  }
+  .outdated{
+    width: 100%
+  }
+}
+
+@media (min-width: 526px) and (max-width: 1024px) {
+  .index-title {
+    font-size: 15px;
+  }
+  .search-input{
+    width: 360px
+  }
+  .game-info {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .line-chart{
+    width: 400px;
+    height: 100%;
+  }
+  .map{
+    min-width: 150px
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 2500px) {
+  .index-title {
+    font-size: 20px;
+  }
+  .search-input{
+    width: 560px
+  }
+  .game-info {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+  }
+  .all-teams {
+    flex-direction: row;
+  }
+  .team {
+      min-width: 310px
+  }
+  .map{
+    min-width: 150px
+  }
+  .line-chart{
+    width: 500px;
+    height: auto;
+  }
+}
