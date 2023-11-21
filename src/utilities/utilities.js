@@ -175,7 +175,7 @@ export const mapNames = {
   10894: 'Yucatan',
   10895: 'Arena',
   10897: 'Oasis',
-  10898: 'GhostLake',
+  10898: 'Ghost Lake',
   10901: 'Nomad',
   10914: 'Acropolis',
   10915: 'Budapest',

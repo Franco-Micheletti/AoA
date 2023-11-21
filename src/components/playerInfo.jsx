@@ -44,7 +44,7 @@ export default async function PlayerInfo ({ playerInfo }) {
                 <Image className='rounded-full' alt={'avatar'} width={75} height={75} src={steamStats.response.players[0].avatarfull}></Image>
               }
               <div className='text-md text-white'>{playerInfo.alias}</div>
-              <Image alt={'flag'} width={40} height={40} src={`/images/flags_icons/${playerInfo.country_code}.png`}></Image>
+              <Image alt={'flag'} width={40} height={40} src={`/images/flags_icons/${playerInfo.country_code.toUpperCase()}.png`}></Image>
           </div>
         </div>
         <div className='flex flex-wrap gap-5 justify-center w-full'>

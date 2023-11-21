@@ -11,7 +11,6 @@ export const updateProfileHistory = (profileData) => {
   } else {
     const visitedProfilesObject = JSON.parse(searchHistory)
     const profileExists = visitedProfilesObject.find((profile) => profile.profileId === profileData.profile_id)
-    console.log(profileExists)
     // if the profile does not exist in the list do:
     if (profileExists === undefined) {
       // if the list have less than 10 profiles do:
