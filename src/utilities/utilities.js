@@ -319,3 +319,11 @@ export const getDateList = (timestampList) => {
   })
   return dateList
 }
+
+export const popularPlayersData = [
+  { id: 199325, name: 'Hera', country: 'CA' },
+  { id: 196240, name: 'TheViper', country: 'DE' },
+  { id: 197388, name: 'Tatoh', country: 'ES' },
+  { id: 198035, name: 'Daut', country: 'GB' },
+  { id: 208393, name: 'Nicov', country: 'AR' },
+  { id: 409748, name: 'Capoch', country: 'AR' }]

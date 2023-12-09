@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { SearchByNameResult } from './searchByNameResult'
 import { VisitedProfiles } from '@/components/visitedProfiles'
+import { PopularProfiles } from '@/components/PopularProfiles'
 export const SearchByName = ({ width, height }) => {
   const [playerList, setplayerList] = useState('')
 
@@ -46,7 +47,10 @@ export const SearchByName = ({ width, height }) => {
           ? playerList.length > 0
             ? <SearchByNameResult playerList={playerList} />
             : <div className='flex justify-center items-center text-black p-3 mt-5 rounded-md'>Player not found</div>
-          : <VisitedProfiles />
+          : <div>
+            <VisitedProfiles />
+            <PopularProfiles />
+          </div>
       }
     </section>
   )

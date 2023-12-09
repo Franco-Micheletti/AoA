@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "npx prisma migrate && npx prisma db push"
+    "postinstall": "npx prisma migrate"
   },
   "dependencies": {
     "@prisma/client": "^5.4.2",
