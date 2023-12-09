@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { SearchByNameResult } from './searchByNameResult'
-import { VisitedProfiles } from '@/components/visitedProfiles'
-import { PopularProfiles } from '@/components/PopularProfiles'
+import { VisitedProfiles } from './visitedProfiles'
+import { PopularProfiles } from './popularProfiles'
 export const SearchByName = ({ width, height }) => {
   const [playerList, setplayerList] = useState('')
 
