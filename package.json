@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^15.2.4",
-    "@prisma/client": "^5.22.0",
+    "@prisma/client": "^6.5.0",
     "@vercel/postgres": "^0.5.0",
     "chart.js": "^4.4.0",
     "dotenv": "^16.3.1",
