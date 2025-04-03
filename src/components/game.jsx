@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Team from './team'
 import { matchTypeIdMapping } from '@/utilities/utilities'
-export default function Game ({ game }) {
+export default function Game({ game }) {
   const gameData = game.game
   const dateNow = Math.round(new Date().getTime() / 1000, 2)
   const daysAgo = Math.round((dateNow - gameData.finished) / 86400, 2)
@@ -28,10 +28,10 @@ export default function Game ({ game }) {
         </div>
         <div className='flex flex-col justify-around items-center gap-5 all-teams'>
           {/* Winner team */}
-          <Team playerList={winnerTeam}/>
+          <Team playerList={winnerTeam} />
           <div className='flex text-lg font-bold justify-center items-center'>VS</div>
           {/* Loser Team */}
-          <Team playerList={loserTeam}/>
+          <Team playerList={loserTeam} />
         </div>
       </div>
       {/* Played at */}

@@ -27,7 +27,7 @@ const apiUpdatePlayerGames = async (id) => {
   return jsonRes
 }
 
-export default async function Player ({ params }) {
+export default async function Player({ params }) {
   const { id } = params
   const profileId = parseInt(id)
 
@@ -46,7 +46,6 @@ export default async function Player ({ params }) {
       if (playerStatsResult.code === 1 && playerGamesResult.code === 1) {
         const playerStats = await queryPlayerInfo(profileId)
         const playerGames = await queryGamesOfPlayer(profileId)
-        
         return [playerStats, playerGames]
       }
     } else {
@@ -61,10 +60,10 @@ export default async function Player ({ params }) {
       {
         playerInfo !== null && gamesData !== null
           ? <section>
-              <PlayerInfo playerInfo={playerInfo}/>
-              <OutdatedProfile playerInfo={playerInfo} />
-              <GamesOfPlayer gamesData={gamesData} playerInfo={playerInfo}/>
-            </section>
+            <PlayerInfo playerInfo={playerInfo} />
+            <OutdatedProfile playerInfo={playerInfo} />
+            <GamesOfPlayer gamesData={gamesData} playerInfo={playerInfo} />
+          </section>
           : <div className='flex flex-col gap-3 bg-zinc-50 z-50 mt-24 p-5 w-full rounded-md font-bold text-lg justify-center items-center'>
             <div>Profile not found</div>
             <Image className='rounded-lg' width={200} height={200} alt={'playernotfound'} src={'/images/index_images/playerNotFound.png'}></Image>

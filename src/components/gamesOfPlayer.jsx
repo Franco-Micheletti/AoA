@@ -3,7 +3,7 @@ import Game from '@/components/game'
 import { useState, useEffect } from 'react'
 import { leaderboardShortName, filterFunctions } from '@/utilities/utilities'
 import { updateProfileHistory } from '@/utilities/recentProfiles'
-export default function GamesOfPlayer ({ gamesData, playerInfo }) {
+export default function GamesOfPlayer({ gamesData, playerInfo }) {
   const [filterName, setFiltername] = useState('all')
   const listOfLeaderboards = playerInfo.playerLeaderboardStats.map((leaderboard) => {
     return (
@@ -22,9 +22,9 @@ export default function GamesOfPlayer ({ gamesData, playerInfo }) {
           {
             listOfLeaderboards.map((leaderboardShortName, index) => {
               return (
-              <div key={index} onClick={() => setFiltername(leaderboardShortName)} className={`${filterName === leaderboardShortName ? 'bg-slate-600 border-slate-600 text-white' : ''} p-1.5 text-xs rounded-md border-slate-300 border-solid border-2 hover:bg-slate-300 hover:text-black hover:border-slate-300 cursor-pointer`}>
-                {leaderboardShortName}
-              </div>)
+                <div key={index} onClick={() => setFiltername(leaderboardShortName)} className={`${filterName === leaderboardShortName ? 'bg-slate-600 border-slate-600 text-white' : ''} p-1.5 text-xs rounded-md border-slate-300 border-solid border-2 hover:bg-slate-300 hover:text-black hover:border-slate-300 cursor-pointer`}>
+                  {leaderboardShortName}
+                </div>)
             })
           }
           {/* Unranked Lobby */}
@@ -36,12 +36,12 @@ export default function GamesOfPlayer ({ gamesData, playerInfo }) {
       {
         gamesData && gamesData.length > 0
           ? <div>
-          { gamesData.filter(filterFunctions[filterName]).sort(function (a, b) { return b.game.finished - a.game.finished }).map((game, index) => {
-            return (
-            <Game key={index} game={game}/>
-            )
-          })
-          }
+            {gamesData.filter(filterFunctions[filterName]).sort(function (a, b) { return b.game.finished - a.game.finished }).map((game, index) => {
+              return (
+                <Game key={index} game={game} />
+              )
+            })
+            }
           </div>
           : <></>
       }

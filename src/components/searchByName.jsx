@@ -32,15 +32,15 @@ export const SearchByName = ({ width, height }) => {
   return (
     <section className='flex flex-col justify-start z-50 absolute bg-white/95 w-auto h-auto shadow-lg p-10 transition-transform rounded-md'>
       <div className='flex flex-col w-full justify-center items-start gap-1' >
-          <div className='flex w-auto justify-start text-base text-black p-1 rounded-md'>Search</div>
-          <form onSubmit={handleSubmit} className='flex gap-3'>
-            <label>
-                <input style={{ borderWidth: '1px' }} name='alias' type='text' placeholder='Search player' className='bg-zinc-50 rounded-lg p-3 text-sm text-gray-600 outline-transparent outline-0 search-input'></input>
-            </label>
-            {
-              width < 525 && <button className='bg-zinc-50 p-3 text-black rounded-md text-sm shadow-md'>Search</button>
-            }
-          </form>
+        <div className='flex w-auto justify-start text-base text-black p-1 rounded-md'>Search</div>
+        <form onSubmit={handleSubmit} className='flex gap-3'>
+          <label>
+            <input style={{ borderWidth: '1px' }} name='alias' type='text' placeholder='Search player' className='bg-zinc-50 rounded-lg p-3 text-sm text-gray-600 outline-transparent outline-0 search-input'></input>
+          </label>
+          {
+            width < 525 && <button className='bg-zinc-50 p-3 text-black rounded-md text-sm shadow-md'>Search</button>
+          }
+        </form>
       </div>
       {
         playerList !== ''

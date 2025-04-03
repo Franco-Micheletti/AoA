@@ -33,6 +33,6 @@ export const RatingHistoryChart = ({ ratingHistory }) => {
     ]
   })
   return (
-    <LineChart chartData={chartData}/>
+    <LineChart chartData={chartData} />
   )
 }

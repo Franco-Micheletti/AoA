@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react'
 import { SearchByName } from '@/components/searchByName'
 import { NavBar } from '@/components/navBar'
-import Image from 'next/image'
-export default function Page () {
+
+export default function Page() {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   useEffect(() => {
@@ -12,14 +12,14 @@ export default function Page () {
   }, [])
 
   return (
-  <div className="bg-white text-white w-full justify-center items-center flex flex-col min-h-full h-auto">
-    <NavBar />
-    <div className='flex flex-col justify-end items-center'>
-      <div className='flex'>
-        <img width={width} height={height} className='z-0 index w-screen h-auto'></img>
+    <div className="bg-white text-white w-full justify-center items-center flex flex-col min-h-full h-auto">
+      <NavBar />
+      <div className='flex flex-col justify-end items-center'>
+        <div className='flex'>
+          <img width={width} height={height} className='z-0 index w-screen h-auto'></img>
+        </div>
       </div>
+      <SearchByName width={width} />
     </div>
-    <SearchByName width={width} />
-  </div>
   )
 }

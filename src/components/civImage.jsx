@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function CivImage ({ code }) {
+export default function CivImage({ code }) {
   const civNames = {
     0: 'Aztecs',
     1: 'Bengalis',
@@ -48,7 +48,7 @@ export default function CivImage ({ code }) {
   }
   return (
     <div>
-        <Image alt='civ' width={25} height={25} src={`/images/civ_icons/${civNames[code]}.png`}></Image>
+      <Image alt='civ' width={25} height={25} src={`/images/civ_icons/${civNames[code]}.png`}></Image>
     </div>
   )
 }
