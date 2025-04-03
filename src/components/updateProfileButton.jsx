@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-export default function UpdateProfileButton({ profileId }) {
+export default function UpdateProfileButton ({ profileId }) {
   const [loading, setloading] = useState(false)
   const updateProfile = async (id) => {
     setloading(true)

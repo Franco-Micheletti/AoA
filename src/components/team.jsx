@@ -1,7 +1,7 @@
 import CivImage from './civImage'
 import Link from 'next/link'
 import { playerColorNames } from '@/utilities/utilities'
-export default function Team({ playerList }) {
+export default function Team ({ playerList }) {
   return (
     <div className='flex flex-col bg-slate-100 rounded-lg p-2 gap-1 team'>
       {

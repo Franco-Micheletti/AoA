@@ -2,7 +2,7 @@
 
 import UpdateProfileButton from './updateProfileButton'
 
-export default function OutdatedProfile({ playerInfo }) {
+export default function OutdatedProfile ({ playerInfo }) {
   const dateNow = Math.round(new Date().getTime() / 1000, 2)
   const updatedAt = Math.round(playerInfo.last_update_at.getTime() / 1000, 2)
   const timeSinceUpdate = Math.round((dateNow - updatedAt) / 1800, 2)

@@ -8,7 +8,7 @@ const getPlayerAvatar = async (playerInfo) => {
   return json
 }
 
-export default async function PlayerInfo({ playerInfo }) {
+export default async function PlayerInfo ({ playerInfo }) {
   const leaderboards = playerInfo.playerLeaderboardStats
   const tableData = leaderboards.map((leaderboard) => {
     delete leaderboard.id

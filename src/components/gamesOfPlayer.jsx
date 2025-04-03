@@ -3,7 +3,7 @@ import Game from '@/components/game'
 import { useState, useEffect } from 'react'
 import { leaderboardShortName, filterFunctions } from '@/utilities/utilities'
 import { updateProfileHistory } from '@/utilities/recentProfiles'
-export default function GamesOfPlayer({ gamesData, playerInfo }) {
+export default function GamesOfPlayer ({ gamesData, playerInfo }) {
   const [filterName, setFiltername] = useState('all')
   const listOfLeaderboards = playerInfo.playerLeaderboardStats.map((leaderboard) => {
     return (

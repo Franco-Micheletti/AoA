@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function CivImage({ code }) {
+export default function CivImage ({ code }) {
   const civNames = {
     0: 'Aztecs',
     1: 'Bengalis',

@@ -1,5 +1,7 @@
 {
-  "extends": ["standard"],
+  "extends": [
+    "standard"
+  ],
   "rules": {
     "no-useless-escape": "off",
     "no-unused-vars": "off",

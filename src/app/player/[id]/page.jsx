@@ -27,7 +27,7 @@ const apiUpdatePlayerGames = async (id) => {
   return jsonRes
 }
 
-export default async function Player({ params }) {
+export default async function Player ({ params }) {
   const { id } = params
   const profileId = parseInt(id)
 

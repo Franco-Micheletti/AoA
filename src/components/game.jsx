@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Team from './team'
 import { matchTypeIdMapping } from '@/utilities/utilities'
-export default function Game({ game }) {
+export default function Game ({ game }) {
   const gameData = game.game
   const dateNow = Math.round(new Date().getTime() / 1000, 2)
   const daysAgo = Math.round((dateNow - gameData.finished) / 86400, 2)
