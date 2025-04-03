@@ -46,6 +46,7 @@ export default async function Player ({ params }) {
       if (playerStatsResult.code === 1 && playerGamesResult.code === 1) {
         const playerStats = await queryPlayerInfo(profileId)
         const playerGames = await queryGamesOfPlayer(profileId)
+        
         return [playerStats, playerGames]
       }
     } else {

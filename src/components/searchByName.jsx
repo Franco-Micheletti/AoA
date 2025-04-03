@@ -6,8 +6,8 @@ import { PopularProfiles } from './popularProfiles'
 export const SearchByName = ({ width, height }) => {
   const [playerList, setplayerList] = useState('')
 
-  const searchPlayer = async (name, leaderboardId) => {
-    const res = await fetch(`/api/searchPlayerByName?name=${name}&leaderboardId=${leaderboardId}`, {
+  const searchPlayer = async (name) => {
+    const res = await fetch(`/api/searchPlayerByName?name=${name}`, {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -24,7 +24,7 @@ export const SearchByName = ({ width, height }) => {
     // eslint-disable-next-line no-undef
     const isInput = input instanceof HTMLInputElement
     if (!isInput || input === null) { return }
-    const players = await searchPlayer(input.value, 3)
+    const players = await searchPlayer(input.value)
     setplayerList(players)
     input.value = ''
   }

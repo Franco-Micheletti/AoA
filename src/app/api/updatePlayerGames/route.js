@@ -6,7 +6,7 @@ export async function POST (request) {
   const { searchParams } = new URL(request.url)
   const profileId = searchParams.get('profile_id')
 
-  const resGamesData = await fetch(`${process.env.MATCH_HISTORY}[${profileId}]&sessionID=${process.env.API_KEY}`, {
+  const resGamesData = await fetch(`${process.env.MATCH_HISTORY}[${profileId}]`, {
     headers: {
       'Content-Type': 'application/json'
     },
