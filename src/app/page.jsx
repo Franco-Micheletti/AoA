@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { SearchByName } from '@/components/searchByName'
 import { NavBar } from '@/components/navBar'
 
-export default function Page() {
+export default function Page () {
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   useEffect(() => {
