@@ -35,11 +35,12 @@ export default async function PlayerInfo ({ playerInfo }) {
   }
   return (
     <div className="bg-zinc-50 mt-24 flex flex-col justify-center items-center p-2 rounded-md playerInfo">
-      {/* Player Avatar */}
+
       <div className='flex p-4 gap-5 items-center justify-center h-48 bg-slate-600 w-full rounded-md'>
         {/* Flag Image */}
         <div className='flex flex-col justify-center items-center gap-3 mt-2 mb-2'>
           {
+            /* Player Avatar */
             steamStats !== null && steamStats !== undefined && steamStats.response.players.length > 0 &&
             <Image className='rounded-full' alt={'avatar'} width={75} height={75} src={steamStats.response.players[0].avatarfull}></Image>
           }
@@ -49,7 +50,7 @@ export default async function PlayerInfo ({ playerInfo }) {
       </div>
       <div className='flex flex-wrap gap-5 justify-center w-full'>
         {/* Player Stats Table */}
-        <div className='mt-2 bg-zinc-50 rounded-md player-stats-table p-2'>
+        <div className='mt-2 bg-zinc-50 rounded-md player-stats-table p-2 text-black'>
           <div className='flex text-xs rounded-md'>
             {
               leaderboards !== null && leaderboards.length > 0 &&

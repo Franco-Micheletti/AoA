@@ -12,7 +12,7 @@ export default function Team ({ playerList }) {
               <div className='flex justify-start items-center gap-2'>
                 <div className='flex text-gray-700 w-6 font-semibold justify-center rounded-sm' style={{ backgroundColor: playerColorNames[playerData.color_id] }}>{playerData.color_id}</div>
                 <CivImage code={playerData.civ_id} />
-                <Link className='flex flex-wrap text-sm h-auto text-cyan-600 cursor-pointer hover:bg-slate-300 rounded-sm' href={`/player/${playerData.player.profile_id}`}>{playerData.player.alias}</Link>
+                <Link className='flex flex-wrap text-sm h-auto text-cyan-600 cursor-pointer hover:bg-slate-300 rounded-sm' href={`/player/${playerData.player.profile_id}/page/1`}>{playerData.player.alias}</Link>
               </div>
               {
                 ratingChange > 0

@@ -7,7 +7,8 @@ export const leaderboardLongName = {
   13: 'Empire Wars 1v1',
   14: 'Empire Wars Team',
   25: 'Return of Rome 1v1',
-  26: 'Return of Rome Team'
+  26: 'Return of Rome Team',
+  27: 'Red Bull Wololo'
 }
 
 export const leaderboardShortName = {
@@ -19,7 +20,8 @@ export const leaderboardShortName = {
   13: 'EW 1v1',
   14: 'EW Team',
   25: 'RoR 1v1',
-  26: 'RoR Team'
+  26: 'RoR Team',
+  27: 'Red Bull'
 }
 
 export const filterRM1v1 = (game) => {

@@ -21,7 +21,7 @@ export default function UpdateProfileButton ({ profileId }) {
     const jsonRes = await statsRes.json()
     if (jsonRes.code === 1) {
       setloading(false)
-      window.location.href = `/player/${profileId}`
+      window.location.href = `/player/${profileId}/page/1`
     }
   }
 

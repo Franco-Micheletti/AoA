@@ -18,23 +18,20 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 .gameList:nth-last-child(1) {
   border-bottom-width: 0;
 }
 
-.team{
+.team {
   min-width: 285px
 }
 
-.index{
+.index {
   background-image: url('/images/index_images/indexbg.webp');
   background-repeat: repeat-y;
   background-position: center;
@@ -44,17 +41,21 @@ body {
   .index-title {
     font-size: 12px;
   }
-  .search-input{
+
+  .search-input {
     width: 160px
   }
-  .line-chart{
+
+  .line-chart {
     width: 300px;
     height: 300px;
   }
-  .map{
+
+  .map {
     margin-bottom: 15px;
   }
-  .outdated{
+
+  .outdated {
     width: 100%
   }
 }
@@ -63,20 +64,24 @@ body {
   .index-title {
     font-size: 15px;
   }
-  .search-input{
+
+  .search-input {
     width: 360px
   }
+
   .game-info {
     flex-direction: row;
     justify-content: space-between;
-    gap: 30px;
+    gap: 80px;
   }
-  .line-chart{
+
+  .line-chart {
     width: 400px;
     height: 100%;
   }
-  .map{
-    min-width: 150px
+
+  .map {
+    min-width: 280px
   }
 }
 
@@ -84,24 +89,30 @@ body {
   .index-title {
     font-size: 20px;
   }
-  .search-input{
+
+  .search-input {
     width: 560px
   }
+
   .game-info {
     flex-direction: row;
     justify-content: space-between;
-    gap: 50px;
+    gap: 80px;
   }
+
   .all-teams {
     flex-direction: row;
   }
+
   .team {
-      min-width: 310px
+    min-width: 310px
   }
-  .map{
-    min-width: 150px
+
+  .map {
+    min-width: 280px
   }
-  .line-chart{
+
+  .line-chart {
     width: 500px;
     height: auto;
   }

@@ -1,7 +1,7 @@
 import Pako from 'pako'
 import { createDict } from './createOptionsDict.js'
 export const decodeSlotInfo = (slotInfo) => {
-// Decode slotinfo
+  // Decode slotinfo
   const base64String = slotInfo
   const binary = atob(base64String)
   const stringBinary = binary.toString()
@@ -30,5 +30,12 @@ export const decodeOptions = (options) => {
   const secondDecode = atob(filterInvalidChar).slice(2)
   const stringList = secondDecode.split(/[\x00\x00\x00\x03\x00\x00\x00\x05\x06\x00\x00\x00\x04\x00\x00\x00\x1B\b]+/)
   const optionsObject = createDict(stringList)
+
+  //var doneOnce
+  //if (!doneOnce) {
+  //  console.log("DECODEDBASE64", optionsObject)
+  // doneOnce = true
+  //}
   return optionsObject
+
 }

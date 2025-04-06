@@ -1,6 +1,7 @@
-import Image from 'next/image'
+import NextImage from 'next/image'
 import Team from './team'
 import { matchTypeIdMapping } from '@/utilities/utilities'
+import { MapImage } from './mapImage'
 export default function Game ({ game }) {
   const gameData = game.game
   const dateNow = Math.round(new Date().getTime() / 1000, 2)
@@ -8,8 +9,9 @@ export default function Game ({ game }) {
   const mapName = gameData.map_name
   const winnerTeam = gameData.gamePlayer.filter((player) => player.result_id === 1)
   const loserTeam = gameData.gamePlayer.filter((player) => player.result_id === 0)
+
   return (
-    <div className='bg-zinc-50 flex flex-col p-3 border-b-2'>
+    <div className='bg-zinc-50 flex flex-col p-3 border-b-2 text-black'>
       {/* Game Info */}
       <div className='flex flex-col justify-center items-center game-info p-2'>
         {/* Map */}
@@ -19,12 +21,12 @@ export default function Game ({ game }) {
               <div className='flex text-sm font-semibold'>{mapName !== null ? mapName.toUpperCase() : 'Unknown'}</div>
               {
                 gameData.description !== 'AUTOMATCH'
-                  ? <div className='flex text-sm justify-center'>{gameData.description}</div>
+                  ? <div className='flex text-sm justify-center'>{gameData.description.slice(0, 30)}</div>
                   : <div className='flex text-sm justify-center'>{matchTypeIdMapping[gameData.matchtype_id]}</div>
               }
             </div>
           }
-          <Image alt='map' width={75} height={75} src={`/images/map_icons/${mapName}.png`}></Image>
+          <MapImage height={125} width={125} src={`/images/map_icons/${mapName}.png`} />
         </div>
         <div className='flex flex-col justify-around items-center gap-5 all-teams'>
           {/* Winner team */}

@@ -8,7 +8,7 @@ export default function OutdatedProfile ({ playerInfo }) {
   const timeSinceUpdate = Math.round((dateNow - updatedAt) / 1800, 2)
 
   return (
-    <div>
+    <div className='text-black'>
       {
         timeSinceUpdate > 1
           ? <div className='bg-zinc-50 flex text-sm flex-col rounded-lg p-5 mt-4 gap-2 outdated'>

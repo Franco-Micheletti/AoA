@@ -2,8 +2,10 @@ const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 
-async function main (id) {
+async function main (id, pageNumber) {
   const data = await prisma.gamePlayer.findMany({
+    skip: pageNumber <= 0 ? 1 : pageNumber * 50 - 50,
+    take: 50,
     select: {
       game: {
         select: {
@@ -44,10 +46,10 @@ async function main (id) {
   return data
 }
 
-export async function queryGamesOfPlayer (id) {
-  const gamesOfPlayer = await main(id)
+export async function queryPlayerGames (id, pageNumber) {
+  const playerGames = await main(id, pageNumber)
     .catch((e) => {
       console.error(e)
     })
-  return gamesOfPlayer
+  return playerGames
 }

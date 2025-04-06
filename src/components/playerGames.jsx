@@ -3,7 +3,7 @@ import Game from '@/components/game'
 import { useState, useEffect } from 'react'
 import { leaderboardShortName, filterFunctions } from '@/utilities/utilities'
 import { updateProfileHistory } from '@/utilities/recentProfiles'
-export default function GamesOfPlayer ({ gamesData, playerInfo }) {
+export default function PlayerGames ({ gamesList, playerInfo }) {
   const [filterName, setFiltername] = useState('all')
   const listOfLeaderboards = playerInfo.playerLeaderboardStats.map((leaderboard) => {
     return (
@@ -16,8 +16,8 @@ export default function GamesOfPlayer ({ gamesData, playerInfo }) {
   return (
     <div className="mt-5 flex flex-col justify-center bg-zinc-50 rounded-md items-center p-2 gameListAndFilter">
       {/* Filters */}
-      <div className='bg-slate-200 flex flex-col p-2 w-full rounded-lg gap-1'>
-        <div className='flex text-sm items-center justify-center mb-3 font-semibold'>Filters</div>
+      <div className='bg-slate-200 flex flex-col p-2 w-full rounded-lg gap-1 text-black'>
+        <div className='flex text-sm items-center justify-center mb-3 font-semibold p-3'>Filters</div>
         <div className='flex flex-wrap gap-3 p-3'>
           {
             listOfLeaderboards.map((leaderboardShortName, index) => {
@@ -34,9 +34,9 @@ export default function GamesOfPlayer ({ gamesData, playerInfo }) {
         </div>
       </div>
       {
-        gamesData && gamesData.length > 0
+        gamesList && gamesList.length > 0
           ? <div>
-            {gamesData.filter(filterFunctions[filterName]).sort(function (a, b) { return b.game.finished - a.game.finished }).map((game, index) => {
+            {gamesList.filter(filterFunctions[filterName]).sort(function (a, b) { return b.game.finished - a.game.finished }).map((game, index) => {
               return (
                 <Game key={index} game={game} />
               )

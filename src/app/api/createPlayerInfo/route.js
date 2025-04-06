@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { updatePlayerInfo } from '../../../../prisma/client/upsertPlayerStats'
+import { createPlayerInfo } from '../../../../prisma/client/playerInfo/createPlayerInfo'
 
 export async function POST (request) {
   const { searchParams } = new URL(request.url)
@@ -12,6 +12,7 @@ export async function POST (request) {
     method: 'GET'
   })
   const playerStats = await resPlayerStats.json()
+
   if (playerStats.result.code === 6) {
     return NextResponse.json({ code: 6, error: 'Profile not found' }, { status: 404 })
   }
@@ -24,6 +25,8 @@ export async function POST (request) {
     },
     leaderboards: playerStats.leaderboardStats
   }
-  const status = await updatePlayerInfo(cleanedData)
+  // PRISMA QUERY
+  const status = await createPlayerInfo(cleanedData)
+
   return NextResponse.json({ code: status.code, error: status.error }, { status: 200 })
 }
