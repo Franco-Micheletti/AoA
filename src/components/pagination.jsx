@@ -11,13 +11,13 @@ export default function Pagination ({ pageNumber, profileId }) {
       </Link>
       {
         <Link href={`/player/${profileId}/page/${pageNumber + 1}`}>
-          <div className="bg-zinc-50 
-                                rounded-full 
-                                w-8 h-8
-                                text-center
-                                content-center
-                                hover:bg-slate-600
-                                hover:text-white">
+          <div className="bg-zinc-50
+                            rounded-full
+                            w-8 h-8
+                            text-center
+                            content-center
+                            hover:bg-slate-600
+                            hover:text-white">
             {pageNumber + 1}
           </div>
         </Link>
