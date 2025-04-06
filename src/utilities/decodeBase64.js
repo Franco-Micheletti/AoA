@@ -31,11 +31,10 @@ export const decodeOptions = (options) => {
   const stringList = secondDecode.split(/[\x00\x00\x00\x03\x00\x00\x00\x05\x06\x00\x00\x00\x04\x00\x00\x00\x1B\b]+/)
   const optionsObject = createDict(stringList)
 
-  //var doneOnce
-  //if (!doneOnce) {
+  // var doneOnce
+  // if (!doneOnce) {
   //  console.log("DECODEDBASE64", optionsObject)
   // doneOnce = true
-  //}
+  // }
   return optionsObject
-
 }

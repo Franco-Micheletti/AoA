@@ -45,7 +45,7 @@ export default async function Player ({ params }) {
         const playerStats = await queryPlayerInfo(profileId)
         return playerStats
       } else {
-        console.log("------------ Player Info not created ------------", "\nERROR :", createPlayerInfoResponse.error)
+        console.log('------------ Player Info not created ------------', '\nERROR :', createPlayerInfoResponse.error)
         return null
       }
     } else {
@@ -62,7 +62,7 @@ export default async function Player ({ params }) {
         const games = await queryPlayerGames(profileId, pageNumber)
         return games
       } else {
-        console.log("------------ Player Games not created ------------", "\nERROR :", createPlayerGamesResponse.error)
+        console.log('------------ Player Games not created ------------', '\nERROR :', createPlayerGamesResponse.error)
         return null
       }
     } else {
@@ -72,7 +72,6 @@ export default async function Player ({ params }) {
 
   const playerInfo = await getPlayerInfo(profileId)
   const gamesList = await getGamesList(profileId, pageNumber)
-
 
   return (
     <div className='bg-black/70 flex flex-col justify-start items-center h-auto min-h-screen p-2'>

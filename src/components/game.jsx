@@ -1,4 +1,3 @@
-import NextImage from 'next/image'
 import Team from './team'
 import { matchTypeIdMapping } from '@/utilities/utilities'
 import { MapImage } from './mapImage'
