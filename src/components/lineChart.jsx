@@ -4,7 +4,7 @@ import { Line } from 'react-chartjs-2'
 
 export const LineChart = ({ chartData }) => {
   return (
-    <div className='flex line-chart'>
+    <div className='flex line-chart p-2 h-60'>
       <Line
         data={chartData}
         options={{

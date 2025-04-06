@@ -25,11 +25,9 @@ async function getOrcreateGame (gameInfo) {
   } else {
     return gameExist
   }
-
 }
 
 async function getOrCreatePlayerFromGame (playerInfo, profiles) {
-
   const existingPlayer = await prisma.player.findFirst({
     where: {
       profile_id: playerInfo.profile_id
@@ -54,11 +52,9 @@ async function getOrCreatePlayerFromGame (playerInfo, profiles) {
   } else {
     return existingPlayer
   }
-
 }
 
 async function createGamePlayer (playerInfo, game, profiles) {
-
   const player = await getOrCreatePlayerFromGame(playerInfo, profiles)
 
   // Check if the gamePlayer exist , this is a M-M relation between a game and a player
@@ -91,9 +87,7 @@ async function createGamePlayer (playerInfo, game, profiles) {
 }
 
 export async function createPlayerGames (gameData, profiles) {
-
   try {
-
     for (const game of gameData) {
       const newGame = await getOrcreateGame(game)
         .catch(async (e) => {

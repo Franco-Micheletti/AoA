@@ -18,7 +18,6 @@ export default async function PlayerInfo ({ playerInfo }) {
     delete leaderboard.rank
     delete leaderboard.ranktotal
     delete leaderboard.ranklevel
-    delete leaderboard.drops
     delete leaderboard.regionrank
     delete leaderboard.regionranktotal
     delete leaderboard.highestrank
@@ -34,39 +33,39 @@ export default async function PlayerInfo ({ playerInfo }) {
     ratingHistoryRMTeam
   }
   return (
-    <div className="bg-zinc-50 mt-24 flex flex-col justify-center items-center p-2 rounded-md playerInfo">
-
-      <div className='flex p-4 gap-5 items-center justify-center h-48 bg-slate-600 w-full rounded-md'>
+    <div className="bg-zinc-50 mt-24 flex p-2 rounded-md playerInfo gap-1">
+      {/* Player Portrait */}
+      <div className='flex p-4 gap-5 justify-center bg-slate-200 w-96 rounded-md'>
         {/* Flag Image */}
-        <div className='flex flex-col justify-center items-center gap-3 mt-2 mb-2'>
+        <div className='flex flex-col items-center gap-3 mt-2 mb-2'>
           {
-            /* Player Avatar */
+            /* Player Avatar Image */
             steamStats !== null && steamStats !== undefined && steamStats.response.players.length > 0 &&
-            <Image className='rounded-full' alt={'avatar'} width={75} height={75} src={steamStats.response.players[0].avatarfull}></Image>
+            <Image className='rounded-full' alt={'avatar'} width={125} height={125} src={steamStats.response.players[0].avatarfull}></Image>
           }
-          <div className='text-md text-white'>{playerInfo.alias}</div>
-          <Image alt={'flag'} width={40} height={40} src={`/images/flags_icons/${playerInfo.country_code.toUpperCase()}.png`}></Image>
+          <div className='text-lg text-black'>{playerInfo.alias}</div>
+          <Image alt={'flag'} width={70} height={70} src={`/images/flags_icons/${playerInfo.country_code.toUpperCase()}.png`}></Image>
         </div>
       </div>
-      <div className='flex flex-wrap gap-5 justify-center w-full'>
+      <div className='flex flex-col gap-5 justify-center'>
         {/* Player Stats Table */}
-        <div className='mt-2 bg-zinc-50 rounded-md player-stats-table p-2 text-black'>
-          <div className='flex text-xs rounded-md'>
+        <div className='bg-zinc-50 rounded-md player-stats-table text-black'>
+          <div className='flex text-xs rounded-md justify-center'>
             {
               leaderboards !== null && leaderboards.length > 0 &&
 
               Object.keys(tableData[0]).map((property, index) => {
                 return (
-                  <div key={index} className='flex flex-col bg-zinc-50 gap-0.5'>
+                  <div key={index} className='flex flex-col bg-zinc-50 gap-1'>
                     {/* Column Name */}
-                    <div className='flex font-bold h-16 p-2 bg-slate-200 justify-center items-center text-center'>
+                    <div className='flex font-bold h-16 p-5 bg-slate-200 justify-center items-center text-center'>
                       <div>{getPlayerStatsColumnNames[property]}</div>
                     </div>
                     {/* Column Field */}
                     {tableData.map((leaderboard, index) => {
                       return (
                         property === 'leaderboard_id'
-                          ? <div className='bg-zinc-100 flex p-2 justify-center items-center h-16' key={index}>{leaderboardLongName[leaderboard[property]]}</div>
+                          ? <div className='bg-zinc-100 flex p-2 justify-center items-center h-16 w-72' key={index}>{leaderboardLongName[leaderboard[property]]}</div>
                           : <div className='bg-zinc-100 flex p-2 justify-center items-center h-16' key={index}>{leaderboard[property]}</div>
                       )
                     })

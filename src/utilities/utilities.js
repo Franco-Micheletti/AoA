@@ -117,11 +117,12 @@ export const playerColorNames = {
 
 export const getPlayerStatsColumnNames = {
   leaderboard_id: 'Match Type',
-  wins: 'W',
-  losses: 'L',
+  wins: 'Wins',
+  losses: 'Loses',
   streak: 'Streak',
   rating: 'Rating',
-  highestrating: 'Best'
+  highestrating: 'Best',
+  drops: 'Chicken Outs'
 }
 
 export const optionsMap = {

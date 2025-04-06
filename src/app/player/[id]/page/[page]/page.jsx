@@ -56,7 +56,7 @@ export default async function Player ({ params }) {
   const getGamesList = async (profileId, pageNumber) => {
     const games = await queryPlayerGames(profileId, pageNumber)
     if (games.length === 0) {
-      // Create player games from the AoE2 endpoint
+      // Create player games from the AoE2 endpoint if there are no games in AoA database
       const createPlayerGamesResponse = await apiCreatePlayerGames(profileId)
       if (createPlayerGamesResponse.code === 1) {
         const games = await queryPlayerGames(profileId, pageNumber)

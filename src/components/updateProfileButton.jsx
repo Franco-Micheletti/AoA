@@ -5,13 +5,13 @@ export default function UpdateProfileButton ({ profileId }) {
   const [loading, setloading] = useState(false)
   const updateProfile = async (id) => {
     setloading(true)
-    const statsRes = await fetch(`/api/updatePlayerStats?profile_id=${id}`, {
+    const statsRes = await fetch(`/api/updatePlayerLeaderboards?profile_id=${id}`, {
       headers: {
         'Content-Type': 'application/json'
       },
       method: 'POST'
     })
-    await fetch(`/api/updatePlayerGames?profile_id=${id}`, {
+    await fetch(`/api/createPlayerGames?profile_id=${id}`, {
       headers: {
         'Content-Type': 'application/json'
       },
