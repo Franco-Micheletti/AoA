@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma migrate reset && npx prisma migrate dev && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "npx prisma migrate && prisma generate"
+    "postinstall": "prisma migrate reset && prisma migrate && prisma generate"
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^15.2.4",
