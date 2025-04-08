@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma migrate deploy && prisma generate && next build",
+    "build": "prisma migrate deploy && next build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate"
@@ -16,6 +16,7 @@
     "chart.js": "^4.4.0",
     "dotenv": "^16.3.1",
     "eslint-config-standard-react": "^13.0.0",
+    "migrate": "^2.1.0",
     "next": "^13.5.4",
     "pako": "^2.1.0",
     "react": "^18",

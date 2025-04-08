@@ -1,7 +1,0 @@
--- AlterTable
-ALTER TABLE "Game" ALTER COLUMN "map_name" DROP NOT NULL;
-
--- AlterTable
-ALTER TABLE "GamePlayer" ALTER COLUMN "team_id" DROP NOT NULL,
-ALTER COLUMN "civ_id" DROP NOT NULL,
-ALTER COLUMN "color_id" DROP NOT NULL;
