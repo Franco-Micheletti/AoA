@@ -34,7 +34,7 @@ CREATE TABLE "Player" (
     "steam_id" TEXT,
     "country_code" TEXT NOT NULL,
     "alias" TEXT NOT NULL,
-    "last_update_at" TIMESTAMP(3),
+    "last_update_at" TIMESTAMP(3)
 
     CONSTRAINT "Player_pkey" PRIMARY KEY ("id")
 );
