@@ -8,7 +8,8 @@ export async function createPlayerPersonalInfo (playerPersonalInfo) {
       country_code: playerPersonalInfo.country_code,
       alias: playerPersonalInfo.alias,
       last_update_at: new Date(),
-      steam_id: playerPersonalInfo.steam_id
+      steam_id: playerPersonalInfo.steam_id,
+      hasToBeUpdated: false
     }
   })
   return data

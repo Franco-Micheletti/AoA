@@ -314,13 +314,64 @@ export const mapNames = {
   301154: 'Sprawling Streams Special'
 }
 
-export const getDateList = (timestampList) => {
-  const dateList = timestampList.map((data) => {
+export const getDateList = (ratingHistoryList) => {
+  const dateList = ratingHistoryList.map((data) => {
     const date = new Date(data.game.finished * 1000)
-    const formattedDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+    const formattedDate = date.toLocaleDateString('es-ES', { timeZone: 'UTC' })
     return formattedDate
   })
   return dateList
+}
+
+export const combineDatesAndRatings = (ratingsSolo, datesSolo, ratingsTeam, datesTeam) => {
+  const dataSolo = []
+  datesSolo.forEach((date, i) => {
+    dataSolo.push({
+      time: date,
+      value: ratingsSolo[i]
+    })
+  }
+  )
+  const dataTeam = []
+  datesTeam.forEach((date, i) => {
+    dataTeam.push({
+      time: date,
+      value: ratingsTeam[i]
+    })
+  }
+  )
+  return [dataSolo, dataTeam]
+}
+
+export const convertTimeStampToLocalString = (timestamp) => {
+  const date = new Date(timestamp * 1000)
+  const formattedDate = date.toLocaleDateString('en-US', { timeZone: 'UTC' })
+  return formattedDate
+}
+
+export const getMinAndMaxTimestamp = (rm1v1, rm2v2) => {
+  const rm1v1timestampList = rm1v1.map((data) => {
+    return data.game.finished
+  })
+  const rm2v2timestampList = rm2v2.map((data) => {
+    return data.game.finished
+  })
+  const combinedList = rm1v1timestampList.concat(rm2v2timestampList)
+
+  const minDate = Math.min.apply(Math, combinedList)
+  const maxDate = Math.max.apply(Math, combinedList)
+
+  return [minDate, maxDate]
+}
+
+export const createListOfDates = (minDate, maxDate) => {
+  console.log(minDate, maxDate)
+  const arr = []
+  for (const dt = new Date(minDate); dt <= new Date(maxDate); dt.setDate(dt.getDate() + 1)) {
+    arr.push(new Date(dt))
+  }
+  const result = arr.map((v) => v.toLocaleDateString('es-ES', { timeZone: 'UTC' }).slice(0, 10))
+  return result
 }
 
 export const popularPlayersData = [

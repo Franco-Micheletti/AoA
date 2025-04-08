@@ -6,6 +6,11 @@ async function main (id, pageNumber) {
   const data = await prisma.gamePlayer.findMany({
     skip: pageNumber <= 0 ? 1 : pageNumber * 50 - 50,
     take: 50,
+    orderBy: {
+      game: {
+        finished: 'desc'
+      }
+    },
     select: {
       game: {
         select: {

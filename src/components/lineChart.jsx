@@ -14,16 +14,11 @@ export const LineChart = ({ chartData }) => {
             }
           },
           maintainAspectRatio: false,
+          parsing: {
+            xAxisKey: 'time',
+            yAxisKey: 'value'
+          },
           responsive: true
-          // tooltips: {
-          //   callbacks: {
-          //     label: function (tooltipItem, data) {
-          //       const dataset = data.datasets[tooltipItem.datasetIndex]
-          //       const index = tooltipItem.index
-          //       return dataset.labels[index] + ': ' + dataset.data[index]
-          //     }
-          //   }
-          // }
         }}
       />
     </div>

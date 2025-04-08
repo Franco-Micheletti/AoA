@@ -11,7 +11,7 @@ export default function OutdatedProfile ({ playerInfo }) {
     <div className='text-black'>
       {
         timeSinceUpdate > 1
-          ? <div className='bg-zinc-50 flex text-sm flex-col rounded-lg p-5 mt-4 gap-2 outdated'>
+          ? <div className='bg-gray-100 flex text-sm flex-col rounded-lg p-5 mt-4 gap-2 outdated'>
             <div className=' font-normal text-base'>This Profile is outdated, click to update</div>
             <UpdateProfileButton profileId={playerInfo.profile_id} />
           </div>

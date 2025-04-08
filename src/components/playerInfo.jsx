@@ -1,7 +1,8 @@
 import Image from 'next/image'
-import { leaderboardLongName, getPlayerStatsColumnNames } from '@/utilities/utilities'
 import { RatingHistoryChart } from './ratingHistoryChart'
 import { queryRatingHistory } from '../../prisma/client/queryRatingHistory'
+import OutdatedProfile from './outdatedProfile'
+import { Leaderboards } from './leaderboards'
 const getPlayerAvatar = async (playerInfo) => {
   const res = await fetch(`${process.env.PLAYER_AVATAR}?key=${process.env.API_KEY}&steamids=${playerInfo.steam_id}`)
   const json = await res.json()
@@ -33,9 +34,9 @@ export default async function PlayerInfo ({ playerInfo }) {
     ratingHistoryRMTeam
   }
   return (
-    <div className="bg-zinc-50 mt-24 flex p-2 rounded-md playerInfo gap-1">
+    <div className="bg-zinc-50 mt-24 flex p-2 rounded-md playerInfo">
       {/* Player Portrait */}
-      <div className='flex p-4 gap-5 justify-center bg-slate-200 w-96 rounded-md'>
+      <div className='flex flex-col p-4 gap-5 justify-start bg-gray-100 w-96 rounded-md'>
         {/* Flag Image */}
         <div className='flex flex-col items-center gap-3 mt-2 mb-2'>
           {
@@ -46,36 +47,12 @@ export default async function PlayerInfo ({ playerInfo }) {
           <div className='text-lg text-black'>{playerInfo.alias}</div>
           <Image alt={'flag'} width={70} height={70} src={`/images/flags_icons/${playerInfo.country_code.toUpperCase()}.png`}></Image>
         </div>
+        <OutdatedProfile playerInfo={playerInfo} />
       </div>
-      <div className='flex flex-col gap-5 justify-center'>
+      <div className='flex flex-col gap-5 justify-center p-8'>
         {/* Player Stats Table */}
-        <div className='bg-zinc-50 rounded-md player-stats-table text-black'>
-          <div className='flex text-xs rounded-md justify-center'>
-            {
-              leaderboards !== null && leaderboards.length > 0 &&
-
-              Object.keys(tableData[0]).map((property, index) => {
-                return (
-                  <div key={index} className='flex flex-col bg-zinc-50 gap-1'>
-                    {/* Column Name */}
-                    <div className='flex font-bold h-16 p-5 bg-slate-200 justify-center items-center text-center'>
-                      <div>{getPlayerStatsColumnNames[property]}</div>
-                    </div>
-                    {/* Column Field */}
-                    {tableData.map((leaderboard, index) => {
-                      return (
-                        property === 'leaderboard_id'
-                          ? <div className='bg-zinc-100 flex p-2 justify-center items-center h-16 w-72' key={index}>{leaderboardLongName[leaderboard[property]]}</div>
-                          : <div className='bg-zinc-100 flex p-2 justify-center items-center h-16' key={index}>{leaderboard[property]}</div>
-                      )
-                    })
-                    }
-                  </div>
-                )
-              })
-            }
-          </div>
-        </div>
+        <div className='text-lg font-bold text-black pt-3'>Leaderboards</div>
+        <Leaderboards tableData={tableData} />
         {/* Rating History */}
         <RatingHistoryChart ratingHistory={ratingHistoryDatasets} />
       </div>

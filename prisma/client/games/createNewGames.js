@@ -1,4 +1,3 @@
-import { createPlayerPersonalInfo } from '../playerInfo/createPlayerPersonalInfo'
 const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
@@ -44,7 +43,8 @@ async function getOrCreatePlayerFromGame (playerInfo, profiles) {
         country_code: playerInfo.country_code,
         alias: playerInfo.alias,
         last_update_at: new Date(),
-        steam_id: profile[0].name.split('/')[2]
+        steam_id: profile[0].name.split('/')[2],
+        hasToBeUpdated: true
       }
     })
 

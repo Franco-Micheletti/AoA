@@ -3,7 +3,7 @@ import Game from '@/components/game'
 import { useState, useEffect } from 'react'
 import { leaderboardShortName, filterFunctions } from '@/utilities/utilities'
 import { updateProfileHistory } from '@/utilities/recentProfiles'
-export default function PlayerGames ({ gamesList, playerInfo }) {
+export default function PlayerGames ({ gameList, playerInfo }) {
   const [filterName, setFiltername] = useState('all')
   const listOfLeaderboards = playerInfo.playerLeaderboardStats.map((leaderboard) => {
     return (
@@ -33,9 +33,9 @@ export default function PlayerGames ({ gamesList, playerInfo }) {
         </div>
       </div>
       {
-        gamesList && gamesList.length > 0
+        gameList && gameList.length > 0
           ? <div>
-            {gamesList.filter(filterFunctions[filterName]).sort(function (a, b) { return b.game.finished - a.game.finished }).map((game, index) => {
+            {gameList.filter(filterFunctions[filterName]).sort(function (a, b) { return b.game.finished - a.game.finished }).map((game, index) => {
               return (
                 <Game key={index} game={game} />
               )

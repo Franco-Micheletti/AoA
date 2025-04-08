@@ -1,11 +1,11 @@
 import PlayerInfo from '@/components/playerInfo'
 import PlayerGames from '@/components/playerGames'
-import OutdatedProfile from '@/components/outdatedProfile'
 import { queryPlayerInfo } from '../../../../../../prisma/client/playerInfo/queryPlayerInfo'
 import { queryPlayerGames } from '../../../../../../prisma/client/games/queryPlayerGames'
 import { NavBar } from '@/components/navBar'
 import Image from 'next/image'
 import Pagination from '@/components/pagination'
+import { updateHasToBeUpdatedField } from '../../../../../../prisma/client/playerInfo/updateHasToBeUpdatedField'
 
 const apiCreatePlayerInfo = async (id) => {
   const res = await fetch(`${process.env.URL}/api/createPlayerInfo?profile_id=${id}`, {
@@ -30,6 +30,18 @@ const apiCreatePlayerGames = async (id) => {
   return jsonRes
 }
 
+const apiUpdatePlayerLeaderboards = async (id) => {
+  const statsRes = await fetch(`${process.env.URL}/api/updatePlayerLeaderboards?profile_id=${id}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST'
+  })
+  const jsonRes = await statsRes.json()
+
+  return jsonRes
+}
+
 export default async function Player ({ params }) {
   const { id, page } = params
   const profileId = parseInt(id)
@@ -49,18 +61,35 @@ export default async function Player ({ params }) {
         return null
       }
     } else {
-      return playerInfo
+      // The player exist
+      // Check if the player was created from another profile
+      if (playerInfo.hasToBeUpdated === true) {
+        // Update Leaderboards
+        const responseUpdateLeaderboards = await apiUpdatePlayerLeaderboards(profileId)
+        if (responseUpdateLeaderboards.code === 1) {
+          const playerData = await queryPlayerInfo(profileId)
+          return playerData
+        } else {
+          console.log('ERROR - Leaderboards were not updated')
+        }
+      } else {
+        return playerInfo
+      }
     }
   }
 
-  const getGamesList = async (profileId, pageNumber) => {
+  const getgameList = async (profileId, pageNumber, playerInfo) => {
     const games = await queryPlayerGames(profileId, pageNumber)
-    if (games.length === 0) {
+    if (games.length === 0 | playerInfo.hasToBeUpdated === true) {
+      if (playerInfo.hasToBeUpdated === true) {
+        // Update the field to false so we are not updating it automatilly the next time
+        const status = await updateHasToBeUpdatedField(playerInfo)
+      }
       // Create player games from the AoE2 endpoint if there are no games in AoA database
       const createPlayerGamesResponse = await apiCreatePlayerGames(profileId)
       if (createPlayerGamesResponse.code === 1) {
-        const games = await queryPlayerGames(profileId, pageNumber)
-        return games
+        const updatedGames = await queryPlayerGames(profileId, pageNumber)
+        return updatedGames
       } else {
         console.log('------------ Player Games not created ------------', '\nERROR :', createPlayerGamesResponse.error)
         return null
@@ -71,7 +100,7 @@ export default async function Player ({ params }) {
   }
 
   const playerInfo = await getPlayerInfo(profileId)
-  const gamesList = await getGamesList(profileId, pageNumber)
+  const gameList = await getgameList(profileId, pageNumber, playerInfo)
 
   return (
     <div className='bg-black/70 flex flex-col justify-start items-center h-auto min-h-screen p-2'>
@@ -81,10 +110,9 @@ export default async function Player ({ params }) {
           playerInfo !== null
             ? <section>
               <PlayerInfo playerInfo={playerInfo} />
-              <OutdatedProfile playerInfo={playerInfo} />
               {
-                gamesList !== null
-                  ? <PlayerGames gamesList={gamesList} playerInfo={playerInfo} />
+                gameList !== null
+                  ? <PlayerGames gameList={gameList} playerInfo={playerInfo} />
                   : <div className='bg-zinc-50 text-black p-3 rounded-md justify-center text-center mt-5'>No games have been found</div>
               }
             </section>
@@ -97,8 +125,8 @@ export default async function Player ({ params }) {
 
       </section>
       {
-        gamesList !== null
-          ? <Pagination pageNumber={pageNumber} profileId={profileId} />
+        gameList !== null
+          ? <Pagination pageNumber={pageNumber} profileId={profileId} gameList={gameList} />
           : <></>
       }
     </div>

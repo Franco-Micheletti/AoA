@@ -8,6 +8,15 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+th,
+td {
+  border: 1px solid rgb(160 160 160);
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding: 8px 10px;
+  text-align: center;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

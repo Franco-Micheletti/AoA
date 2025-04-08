@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Pagination ({ pageNumber, profileId }) {
+export default function Pagination ({ pageNumber, profileId, gameList }) {
   return (
     <section className='flex justify-center w-full top-0 p-3 z-10 text-black rounded-sm mt-3 gap-3'>
       <Link href={`/player/${profileId}/page/${pageNumber - 1}`}>
@@ -9,8 +9,8 @@ export default function Pagination ({ pageNumber, profileId }) {
           : <></>
         }
       </Link>
-      {
-        <Link href={`/player/${profileId}/page/${pageNumber + 1}`}>
+      {gameList.length === 50
+        ? <Link href={`/player/${profileId}/page/${pageNumber + 1}`}>
           <div className="bg-zinc-50
                             rounded-full
                             w-8 h-8
@@ -21,6 +21,7 @@ export default function Pagination ({ pageNumber, profileId }) {
             {pageNumber + 1}
           </div>
         </Link>
+        : <></>
       }
     </section>
   )
