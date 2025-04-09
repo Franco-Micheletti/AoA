@@ -4,13 +4,13 @@ import { Line } from 'react-chartjs-2'
 
 export const LineChart = ({ chartData }) => {
   return (
-    <div className='flex line-chart p-2 h-60'>
+    <div className='p-2 h-96'>
       <Line
         data={chartData}
         options={{
           plugins: {
             tooltip: {
-              yAlign: true
+              yAlign: false
             }
           },
           maintainAspectRatio: false,

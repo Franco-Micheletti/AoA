@@ -34,11 +34,11 @@ export default async function PlayerInfo ({ playerInfo }) {
     ratingHistoryRMTeam
   }
   return (
-    <div className="bg-zinc-50 mt-24 flex p-2 rounded-md playerInfo">
+    <div className="bg-zinc-50 mt-24 flex rounded-md player-info">
       {/* Player Portrait */}
-      <div className='flex flex-col p-4 gap-5 justify-start bg-gray-100 w-96 rounded-md'>
+      <div className='flex flex-col gap-5 justify-start bg-gray-100 rounded-md player-portrait'>
         {/* Flag Image */}
-        <div className='flex flex-col items-center gap-3 mt-2 mb-2'>
+        <div className='flex flex-col items-center gap-3 mt-32 mb-2'>
           {
             /* Player Avatar Image */
             steamStats !== null && steamStats !== undefined && steamStats.response.players.length > 0 &&
@@ -49,13 +49,18 @@ export default async function PlayerInfo ({ playerInfo }) {
         </div>
         <OutdatedProfile playerInfo={playerInfo} />
       </div>
-      <div className='flex flex-col gap-5 justify-center p-8'>
+      <div className='flex flex-col gap-5'>
         {/* Player Stats Table */}
-        <div className='text-lg font-bold text-black pt-3'>Leaderboards</div>
+        <div className='p-2 bg-gray-100'>
+          <div className='text-lg font-bold text-sky-900 p-1 ml-3 text-center'>Leaderboards</div>
+        </div>
         <Leaderboards tableData={tableData} />
         {/* Rating History */}
+        <div className='p-2 mt-3 bg-gray-100'>
+          <div className='text-lg font-bold text-sky-900 p-1 ml-3 text-center'>Rating History</div>
+        </div>
         <RatingHistoryChart ratingHistory={ratingHistoryDatasets} />
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }

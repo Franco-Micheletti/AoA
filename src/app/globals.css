@@ -10,12 +10,14 @@
 
 th,
 td {
-  border: 1px solid rgb(160 160 160);
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  padding: 8px 10px;
-  text-align: center;
+  padding: 20px;
+  text-align: start;
 }
+
+table {
+  color: rgb(21, 43, 55);
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -37,13 +39,32 @@ body {
 }
 
 .team {
-  min-width: 285px
+  min-width: 320px
 }
 
 .index {
   background-image: url('/images/index_images/indexbg.webp');
   background-repeat: repeat-y;
   background-position: center;
+}
+
+.pages-container {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+  border-radius: 9999px;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  font-size: medium;
+  align-content: center;
+  font-weight: 600;
+}
+
+.pages-container:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @media (min-width: 220px) and (max-width: 525px) {
@@ -55,17 +76,32 @@ body {
     width: 160px
   }
 
-  .line-chart {
-    width: 300px;
-    height: 300px;
-  }
-
   .map {
     margin-bottom: 15px;
   }
 
   .outdated {
     width: 100%
+  }
+
+  .player-info {
+    width: 361px;
+    flex-direction: column;
+  }
+
+  .leaderboard-name {
+    font-size: smaller;
+    font-weight: 300;
+  }
+
+  .leaderboard-data-value {
+    font-size: smaller;
+    font-weight: 500;
+  }
+
+  .leaderboard-column {
+    font-size: small;
+    font-weight: 600;
   }
 }
 
@@ -81,15 +117,29 @@ body {
   .game-info {
     flex-direction: row;
     justify-content: space-between;
-    gap: 80px;
-  }
-
-  .line-chart {
-    height: 100%;
   }
 
   .map {
     min-width: 280px
+  }
+
+  .player-info {
+    flex-direction: column;
+  }
+
+  .leaderboard-name {
+    font-size: medium;
+    font-weight: 500;
+  }
+
+  .leaderboard-data-value {
+    font-size: medium;
+    font-weight: 500;
+  }
+
+  .leaderboard-column {
+    font-size: medium;
+    font-weight: 700;
   }
 }
 
@@ -104,7 +154,6 @@ body {
 
   .game-info {
     flex-direction: row;
-    justify-content: space-between;
     gap: 80px;
   }
 
@@ -120,7 +169,23 @@ body {
     min-width: 280px
   }
 
-  .line-chart {
-    height: 400px;
+  .player-portrait {
+    width: 384px;
   }
+
+  .leaderboard-name {
+    font-size: medium;
+    font-weight: 500;
+  }
+
+  .leaderboard-data-value {
+    font-size: medium;
+    font-weight: 500;
+  }
+
+  .leaderboard-column {
+    font-size: medium;
+    font-weight: 700;
+  }
+
 }

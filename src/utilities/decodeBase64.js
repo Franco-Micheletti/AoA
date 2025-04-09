@@ -15,7 +15,6 @@ export const decodeSlotInfo = (slotInfo) => {
     delete slot['profileInfo.id']
     return slot
   })
-
   return slotInfoObjectFormatted
 }
 

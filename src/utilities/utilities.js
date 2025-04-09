@@ -122,7 +122,7 @@ export const getPlayerStatsColumnNames = {
   streak: 'Streak',
   rating: 'Rating',
   highestrating: 'Best',
-  drops: 'Chicken Outs'
+  drops: 'Drops'
 }
 
 export const optionsMap = {
